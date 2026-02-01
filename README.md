@@ -1,171 +1,224 @@
-# Digirett-AI-Agent
-AI-powered Norwegian legal assistant with RAG pipeline, Lovdata integration, and multilingual support
+============================================
+README.md
+Ingestion Layer Documentation
+=============================
 
+Lovdata RAG System – Ingestion Layer
+Production-ready ingestion pipeline for Norwegian legal documents.
 
-## 🎯 Project Objectives
+The ingestion layer is responsible for **collecting, preprocessing, chunking, embedding, and storing legal documents** into the vector database used by the RAG backend.
 
-- **Accurate Legal Q&A**: Leverage Lovdata API for authoritative Norwegian legal information
-- **Full RAG Pipeline**: Contextual answers using vector embeddings and semantic search
-- **Multilingual Support**: English & Norwegian language support
-- **Secure Authentication**: Role-based access control (RBAC)
-- **Human-in-the-Loop**: Escalation workflow for complex legal queries
-- **Audit Logging**: Comprehensive compliance and traceability
-- **Scalable Infrastructure**: Foundation for Phase 2 document intelligence
+============================================
+🎯 Features
+===========
 
-## 🏗️ Architecture Overview
+✅ Lovdata legal document ingestion
+✅ Robust preprocessing & text cleaning
+✅ Advanced chunking (parent–child, token-aware)
+✅ Embedding generation (BGE / OpenAI / Azure OpenAI)
+✅ Milvus vector database storage
+✅ Idempotent & repeatable ingestion runs
+✅ Structured metadata for traceability
+✅ Logging & error handling
+✅ Production-ready modular architecture
 
+# Commit
+git commit -m "Initial commit - clean codebase with tests"
+
+# Add remote (this will fail if already exists, that's OK)
+git remote add origin https://github.com/Vineesh02/Digirett_AI.git
+
+# Force push to overwrite old history
+git push -u origin main --force
 ```
-┌─────────────┐      ┌──────────────┐      ┌─────────────┐
-│   Frontend  │─────▶│   Backend    │─────▶│  Ingestion  │
-│  (Next.js)  │      │  (Python)    │      │  (Python)   │
-│   Vercel    │      │              │      │             │
-└─────────────┘      └──────────────┘      └─────────────┘
-                            │                      │
-                            ▼                      ▼
-                     ┌──────────────┐      ┌─────────────┐
-                     │   Redis      │      │   Milvus    │
-                     │   Supabase   │      │     VDB     │
-                     └──────────────┘      └─────────────┘
-```
-
-## 📁 Repository Structure
-
-```
-.
-├── frontend/           # Next.js application
-├── backend/            # Python backend services
-├── ingestion/          # Data ingestion pipeline
-├── .github/
-│   └── workflows/      # CI/CD pipelines
-```
-
-## 🌿 Branch Strategy
-
-| Branch | Purpose | CI/CD | Deploy Target |
-|--------|---------|-------|---------------|
-| `production` | Production-ready code (default) | ✅ | Production environment |
-| `testing` | Integration testing & QA | ✅ | Testing environment |
-| `frontend` | Frontend development | ❌ | - |
-| `backend` | Backend development | ❌ | - |
-| `ingestion` | Data pipeline development | ❌ | - |
-
-### Workflow
-
-1. **Development**: Work on `frontend`, `backend`, or `ingestion` branches
-2. **Integration**: Merge all feature branches → `testing`
-3. **Testing**: Run comprehensive tests, raise issues, document
-4. **Production**: After successful testing → merge to `production`
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 18+ (Frontend)
-- Python 3.11+ (Backend & Ingestion)
-- Docker & Docker Compose
-- Git
-
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/aXtr1o1/Digirett-AI-Agent.git 
-cd Digirett-AI-Agent
-
-# Checkout desired branch
-git checkout 
-
-# Install dependencies (see respective README files)
-```
-
-## 📚 Documentation
-
-- [Frontend Documentation](./frontend/README.md)
-- [Backend Documentation](./backend/README.md)
-- [Ingestion Pipeline Documentation](./ingestion/README.md)
-- [Deployment Guide](./docs/DEPLOYMENT.md)
-- [API Documentation](./docs/API.md)
-- [Contributing Guidelines](./docs/CONTRIBUTING.md)
-
-## 🔐 Environment Variables
-
-Create `.env` files in respective directories. See `.env.example` files for required variables.
-
-**Critical Variables:**
-- `LOVDATA_API_KEY`: Lovdata API access
-- `MILVUS_HOST`: Vector database connection
-- `REDIS_URL`: Cache and session storage
-- `SUPABASE_URL`: Database connection
-- `AUTH_SECRET`: Authentication secret
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-make test
-
-# Run specific test suites
-make test-frontend
-make test-backend
-make test-ingestion
-make test-e2e
-```
-
-## 📦 Deployment
-
-### Production Deployment
-
-```bash
-# Automated via CI/CD on merge to production
-git checkout production
-git merge testing
-git push origin production
-```
-
-### Manual Deployment
-
-```bash
-# Frontend (Vercel)
-cd frontend && vercel --prod
-
-# Backend & Ingestion (Docker)
-docker-compose -f docker/production.yml up -d
-```
-
-## 🛠️ Technology Stack
-
-### Frontend
-- **Framework**: Next.js 14
-- **Styling**: Tailwind CSS
-- **Auth**: NextAuth.js
-- **Deployment**: Vercel
-
-### Backend
-- **Language**: Python 3.11+
-- **Framework**: FastAPI
-- **LLM Framework**: LangChain
-- **Database**: Supabase (PostgreSQL)
-- **Cache**: Redis
-- **Vector DB**: Milvus
-
-### Ingestion
-- **Language**: Python 3.11+
-- **API**: Lovdata API
-- **Embeddings**: OpenAI / Azure OpenAI
-- **Scheduling**: Cron / APScheduler
-
-
-## 🗺️ Roadmap
-
-### Phase 1 (Current)
-- ✅ Core RAG pipeline
-- ✅ Lovdata integration
-- ✅ Basic UI
-- 🔄 Human-in-the-loop workflow
-- 🔄 Audit logging
-
 
 ---
 
-**Last Updated**: January 2026  
-**Version**: 1.0.0
+### **STEP 11: Verify on GitHub**
+
+1. Go to: https://github.com/Vineesh02/Digirett_AI
+2. Refresh the page
+3. You should see:
+   - ✅ `ingestion/` folder with all your code
+   - ✅ `tests/` folder with demo code
+   - ✅ `data/` folder (but empty except `.gitkeep`)
+   - ✅ Repository size: **< 5 MB**
+
+---
+
+📁 Project Structure
+```
+DIGIRETT-AI-AGENT/
+├── data/
+│   ├── .gitkeep
+│   └── README.md
+├── ingestion/
+│   └── src/
+│       ├── processors/
+│       │   ├── chunker.py
+│       │   ├── embedder_sagemaker.py
+│       │   └── text_processor.py
+│       ├── storage/
+│       │   ├── milvus_store.py
+│       │   └── supabase_store.py
+│       ├── verify/
+│       │   ├── check_chunker.py
+│       │   ├── del_milvus.py
+│       │   ├── verify_milvus.py
+│       │   └── verify_sagemaker.py
+│       ├── __init__.py
+│       ├── config.py
+│       └── main.py
+├── tests/
+│   ├── demo_testing.py
+│   ├── test_bge_embedding.py
+│   ├── test_collector.py
+│   ├── test_health.py
+│   ├── test_milvus_store.py
+│   └── test_supabase_store.py
+├── .gitignore
+├── ecosystem.config.js
+├── README.md
+└── requirements.txt
+
+============================================
+🚀 Quick Start
+==============
+
+---
+
+1. Install Dependencies
+
+---
+
+```
+cd ingestion
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+---
+
+2. Configure Environment
+
+---
+
+Copy `.env.example` to `.env` and update:
+
+```
+# Lovdata
+company specific data --data/raw_xml--53 xml 
+
+# Embeddings
+EMBEDDING_PROVIDER=azure_openai
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_API_KEY=your-api-key
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT=bge-m3
+
+# Milvus
+MILVUS_HOST=localhost
+MILVUS_PORT=19530
+MILVUS_COLLECTION=lovdata_legal_docs
+
+# Chunking
+CHUNK_SIZE=512
+CHUNK_OVERLAP=64
+```
+
+---
+
+3. Run the Ingestion Pipeline
+
+---
+
+### Standard Ingestion Run
+
+```
+python -m ingestion.src.main
+```
+
+This command will:
+
+* Fetch legal documents from Lovdata
+* Clean and normalize text
+* Apply chunking strategy
+* Generate embeddings
+* Store vectors and metadata in Milvus
+
+============================================
+🧪 Testing
+==========
+
+Run ingestion tests:
+
+```
+pytest tests/
+```
+
+============================================
+🧠 Ingestion Flow
+=================
+
+```
+Lovdata API
+    ↓
+Raw Document Loader
+    ↓
+Text Cleaning & Normalization
+    ↓
+Chunking (Parent–Child / Token-Aware)
+    ↓
+Embedding Generation
+    ↓
+Milvus Vector Store
+```
+
+============================================
+🧩 Chunking Strategy
+====================
+
+* **Parent–Child Chunking**
+
+  * Parent chunk: legal section or article
+  * Child chunks: smaller semantic units used for embeddings
+
+* **Token-Aware Chunking**
+
+  * Prevents exceeding LLM token limits
+  * Preserves semantic coherence
+
+* **Dynamic Chunk Sizes**
+
+  * Adjusts based on document structure
+
+============================================
+📊 Logging & Monitoring
+=======================
+
+Logs are stored under `logs/`
+
+```
+tail -f logs/ingestion.log
+```
+
+Log Levels:
+
+* DEBUG
+* INFO
+* WARNING
+* ERROR
+
+============================================
+🔮 Future Enhancements
+======================
+
+* Incremental ingestion & versioning
+* PDF / DOCX ingestion
+* Multilingual embeddings
+* Deduplication & change detection
+* Ingestion metrics dashboard
+
+============================================
+Version: 1.0.0
+Last Updated: January 2026
