@@ -32,6 +32,10 @@ javascriptconst API_BASE_URL = 'https://your-backend-url.ngrok-free.dev';
 bashnpm start
 Open http://localhost:3000
 
+Run command 
+----npm install
+----npm start
+   
 🔧 Available Scripts
 CommandDescriptionnpm startRuns dev server on port 3000npm run buildCreates production build in /buildnpm testLaunches test runner
 
