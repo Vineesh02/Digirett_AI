@@ -1,0 +1,104 @@
+# Consolidated root .gitignore
+# Merged from backend/.gitignore, ingestion/.gitignore, frontend/.gitignore
+
+# ------------------ Python ------------------
+__pycache__/\
+*.pyc
+venv/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ------------------ Node / Frontend ------------------
+# Ignore node modules in any folder
+node_modules/
+# Lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnp/
+.pnp.js
+
+# Caches/builds for popular bundlers/frameworks
+.next/
+.out/
+.nuxt/
+.dist/
+.cache/
+.parcel-cache/
+.esbuild/
+.storybook/
+
+# ------------------ Build / Test / Coverage ------------------
+/build
+/dist
+/coverage
+coverage/
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ------------------ Data & Generated ------------------
+data/
+ingestion/data/
+!**/.gitkeep
+*.txt
+*.xml
+*.csv
+*.json
+!requirements.txt
+!ecosystem.config.js
+
+# ------------------ Environment ------------------
+# Ignore generic env files but explicitly allow backend/.env to remain tracked
+.env
+!.env.example
+!/backend/.env
+
+# Local env variants
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# AWS
+.aws/
+
+# ------------------ Databases ------------------
+milvus/
+*.db
+
+# ------------------ Logs ------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ------------------ IDE / Editor ------------------
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ------------------ Tooling / Caches ------------------
+.mypy_cache/
+.cache/
+coverage/
+
+# ------------------ OS / Misc ------------------
+.DS_Store
+Thumbs.db
+
+# Notes:
+# - The backend/.env file is explicitly allowed so it will not be ignored by Git.
+# - If files like frontend/node_modules or package-lock.json are already tracked, run the git untrack commands described below to remove them from the index while keeping local copies.
