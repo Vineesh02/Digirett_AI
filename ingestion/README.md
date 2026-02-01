@@ -1,55 +1,29 @@
-============================================
-README.md
-Ingestion Layer Documentation
-=============================
+# Ingestion Layer Documentation
 
-Lovdata RAG System – Ingestion Layer
+Lovdata RAG System – Ingestion Layer  
 Production-ready ingestion pipeline for Norwegian legal documents.
 
 The ingestion layer is responsible for **collecting, preprocessing, chunking, embedding, and storing legal documents** into the vector database used by the RAG backend.
 
-============================================
-🎯 Features
-===========
+---
 
-✅ Lovdata legal document ingestion
-✅ Robust preprocessing & text cleaning
-✅ Advanced chunking (parent–child, token-aware)
-✅ Embedding generation (BGE / OpenAI / Azure OpenAI)
-✅ Milvus vector database storage
-✅ Idempotent & repeatable ingestion runs
-✅ Structured metadata for traceability
-✅ Logging & error handling
-✅ Production-ready modular architecture
+## 🎯 Features
 
-============================================
-📁 Project Structure
-====================
-# Commit
-git commit -m "Initial commit - clean codebase with tests"
-
-# Add remote (this will fail if already exists, that's OK)
-git remote add origin https://github.com/Vineesh02/Digirett_AI.git
-
-# Force push to overwrite old history
-git push -u origin main --force
-```
+- ✅ Lovdata legal document ingestion  
+- ✅ Robust preprocessing & text cleaning  
+- ✅ Advanced chunking (parent–child, token-aware)  
+- ✅ Embedding generation (BGE / OpenAI / Azure OpenAI)  
+- ✅ Milvus vector database storage  
+- ✅ Idempotent & repeatable ingestion runs  
+- ✅ Structured metadata for traceability  
+- ✅ Logging & error handling  
+- ✅ Production-ready modular architecture  
 
 ---
 
-### **STEP 11: Verify on GitHub**
+## 📁 Project Structure
 
-1. Go to: https://github.com/Vineesh02/Digirett_AI
-2. Refresh the page
-3. You should see:
-   - ✅ `ingestion/` folder with all your code
-   - ✅ `tests/` folder with demo code
-   - ✅ `data/` folder (but empty except `.gitkeep`)
-   - ✅ Repository size: **< 5 MB**
-
----
-📁 Project Structure
-```
+```text
 DIGIRETT-AI-AGENT/
 ├── data/
 │   ├── .gitkeep
@@ -83,87 +57,66 @@ DIGIRETT-AI-AGENT/
 ├── README.md
 └── requirements.txt
 
-============================================
 🚀 Quick Start
-==============
 
----
+1️⃣ Install Dependencies
 
-1. Install Dependencies
-
----
-
-```
 cd ingestion
 python -m venv .venv
 source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-```
 
----
+2️⃣ Configure Environment
 
-2. Configure Environment
+Copy .env.example to .env and update:
 
----
-
-Copy `.env.example` to `.env` and update:
-
-```
 # Lovdata
-LOVDATA_API_KEY=your-lovdata-api-key
+# Company-specific raw XML data (example)
+DATA_PATH=./data/raw_xml   # contains ~53 XML files
 
-# Embeddings
+**# Embeddings**
+
 EMBEDDING_PROVIDER=azure_openai
 AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
 AZURE_OPENAI_API_KEY=your-api-key
 AZURE_OPENAI_EMBEDDING_DEPLOYMENT=bge-m3
 
-# Milvus
+**# Milvus**
 MILVUS_HOST=localhost
 MILVUS_PORT=19530
 MILVUS_COLLECTION=lovdata_legal_docs
 
-# Chunking
+**# Chunking**
+
 CHUNK_SIZE=512
 CHUNK_OVERLAP=64
-```
 
----
+3️⃣ Run the Ingestion Pipeline
 
-3. Run the Ingestion Pipeline
+Standard Ingestion Run
 
----
-
-### Standard Ingestion Run
-
-```
-python -m ingestion.src.main
-```
+--- python -m ingestion.src.main
 
 This command will:
 
-* Fetch legal documents from Lovdata
-* Clean and normalize text
-* Apply chunking strategy
-* Generate embeddings
-* Store vectors and metadata in Milvus
+Fetch legal documents from Lovdata
 
-============================================
+Clean and normalize text
+
+Apply chunking strategy
+
+Generate embeddings
+
+Store vectors and metadata in Milvus
+
 🧪 Testing
-==========
-
 Run ingestion tests:
 
-```
-pytest tests/ demo_testing.
-```
+pytest tests/-demo_testing
 
-============================================
 🧠 Ingestion Flow
-=================
 
-```
-Lovdata API
+raw_files
     ↓
 Raw Document Loader
     ↓
@@ -174,53 +127,36 @@ Chunking (Parent–Child / Token-Aware)
 Embedding Generation
     ↓
 Milvus Vector Store
-```
 
-============================================
 🧩 Chunking Strategy
-====================
 
-* **Parent–Child Chunking**
+Parent–Child Chunking
+Parent chunk: legal section or article
 
-  * Parent chunk: legal section or article
-  * Child chunks: smaller semantic units used for embeddings
+Child chunks: smaller semantic units used for embeddings
 
-* **Token-Aware Chunking**
+Token-Aware Chunking
+Prevents exceeding LLM token limits
 
-  * Prevents exceeding LLM token limits
-  * Preserves semantic coherence
+Preserves semantic coherence
 
-* **Dynamic Chunk Sizes**
+Dynamic Chunk Sizes
+Adjusts chunk size based on document structure
 
-  * Adjusts based on document structure
-
-============================================
 📊 Logging & Monitoring
-=======================
 
-Logs are stored under `logs/`
+Logs are stored under logs/
 
-```
 tail -f logs/ingestion.log
-```
+Log Levels
 
-Log Levels:
+DEBUG
 
-* DEBUG
-* INFO
-* WARNING
-* ERROR
+INFO
 
-============================================
-🔮 Future Enhancements
-======================
+WARNING
 
-* Incremental ingestion & versioning
-* PDF / DOCX ingestion
-* Multilingual embeddings
-* Deduplication & change detection
-* Ingestion metrics dashboard
+ERROR
 
-============================================
 Version: 1.0.0
 Last Updated: January 2026
