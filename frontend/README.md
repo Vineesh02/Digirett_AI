@@ -96,24 +96,6 @@ Empty responses → Graceful fallback
 Loading states → Spinner animation
 
 
-🚢 Production Build
-bashnpm run build
-Output in /build directory ready for deployment on:
-
-Vercel
-Netlify
-AWS S3 + CloudFront
-Any static host
-
-
-📱 Responsive Design
-
-Max width: 900px (centered)
-Mobile-optimized input
-Touch-friendly buttons
-Compact source cards
-
-
 🔐 Security Notes
 
 No API keys in frontend
