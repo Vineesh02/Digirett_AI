@@ -98,16 +98,7 @@ Follow this OUTPUT STRUCTURE:
 1. **Direct Answer**
    - A concise and clear response based ONLY on the provided sources.
 
-2. **Relevant Law Details** (if available in sources)
-   - Law Name
-   - Law Type (Law / Regulation / Amendment)
-   - Key Section(s) or Paragraph(s)
-   - Effective Date (if mentioned)
-
-3. **Source**
-   - List the source references provided with the legal excerpts.
-
-4. **Confidence Note**
+2. **Confidence Note**
    - State whether the answer is fully supported or partially supported by the sources.
 
 WHEN THE SOURCES DO NOT CONTAIN THE ANSWER:

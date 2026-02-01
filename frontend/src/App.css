@@ -37,7 +37,7 @@ body {
 .empty-state {
   text-align: center;
   color: #6b7280;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   margin: auto;
 }
@@ -49,7 +49,7 @@ body {
   width: 100%;
   padding: 16px;
   border-radius: 12px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.5;
   animation: fadeIn 0.25s ease-out;
 }
@@ -67,19 +67,20 @@ body {
 
 /* User Message */
 .message.user {
-  background: #f7f7f8;
-  color: #111827;
+  background: #fafafa;
+  color: #1a1a1a;
   align-self: flex-end;
   max-width: 80%;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #d4d4d4;
 }
 
 /* Assistant Message */
 .message.assistant {
   background: #ffffff;
-  color: #111827;
+  color: #1a1a1a;
   align-self: flex-start;
-  border: none;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);  
 }
 
 /* =======================
@@ -88,7 +89,7 @@ body {
 .message-text {
   white-space: pre-wrap;
   word-break: break-word;
-  color: #374151;
+  color: #2c2c2c; 
 }
 
 /* Paragraphs */
@@ -202,25 +203,25 @@ body {
 .sources {
   margin-top: 12px;
   padding-top: 10px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #d4d4d4;  /* Darker border */
 }
 
 .sources-title {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 13px;  /* Increase from 12px */
   margin-bottom: 8px;
-  color: #6b7280;
+  color: #4a4a4a;  /* Darker gray */
   text-transform: uppercase;
   letter-spacing: 0.4px;
 }
 
 /* Source Item */
 .source-item {
-  background: #f9fafb;
+  background: #fafafa;  /* Slight gray tint */
   padding: 10px 12px;
   margin-bottom: 8px;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #d4d4d4;  /* Darker border */
 }
 
 .source-item:last-child {
@@ -261,12 +262,12 @@ body {
 
 /* Source Text */
 .source-text {
-  font-size: 12.5px;
-  color: #4b5563;
+  font-size: 13.5px;  /* Increase from 12.5px */
+  color: #3a3a3a;  /* Darker than #4b5563 */
   line-height: 1.45;
   margin-left: 28px;
   padding-left: 8px;
-  border-left: 2px solid #e5e7eb;
+  border-left: 2px solid #d0d0d0;  /* Darker border */
 }
 
 /* =======================
@@ -280,8 +281,8 @@ body {
 .input-wrapper {
   display: flex;
   align-items: center;
-  background: #f9fafb;
-  border: 1.5px solid #e5e7eb;
+  background: #f8f8f8;  /* Slightly darker gray */
+  border: 1.5px solid #d0d0d0;  /* Darker border */
   border-radius: 22px;
   padding: 8px 14px;
 }
@@ -295,12 +296,12 @@ input {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 14.5px;
+  font-size: 16px;
   background: transparent;
 }
 
 input::placeholder {
-  color: #9ca3af;
+  color: #6b6b6b;  /* Darker than #9ca3af */
 }
 
 /* Send Button */
